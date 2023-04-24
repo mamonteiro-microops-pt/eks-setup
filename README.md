@@ -5,8 +5,6 @@ aws eks --region us-east-1 update-kubeconfig --name eks-kafka-cluster
 kubectl get svc -n argocd 
 
 # eks-csi-driver
-https://www.youtube.com/watch?v=Hv1Cw2NDeRU
-
 kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.17" 
 
 # clean
