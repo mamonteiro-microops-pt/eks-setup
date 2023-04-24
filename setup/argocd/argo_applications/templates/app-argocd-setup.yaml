@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-setup
+  namespace: {{ .Values.namespace }}
+  labels:
+    teste: "kn-label-1"
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: {{ .Values.namespace }}
+    server: {{ .Values.dest_server }}
+  project: default
+  source:
+    path: .
+    repoURL: https://github.com/RuiEusebio/argocd-setup.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=false
