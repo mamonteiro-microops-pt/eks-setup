@@ -13,6 +13,9 @@ rm .terraform.lock.hcl terraform.tfstate terraform.tfstate.backup
 # Local
 ArgoCD Link
 
+Argo uses bcrypt algorithm, you can generate password on this link
+https://bcrypt-generator.com/
+
 https://localhost:30080/
 
 username:admin
