@@ -9,3 +9,5 @@ nodes:
     listenAddress: "0.0.0.0"
     protocol: tcp
 - role: worker
+- role: worker
+- role: worker
