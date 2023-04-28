@@ -18,6 +18,9 @@ spec:
     path: .
     repoURL: https://github.com/RuiEusebio/argocd-setup.git
     targetRevision: HEAD
+    helm:
+      valueFiles:
+        - ./releases/{{.Values.environment}}/values.yaml
   syncPolicy:
     automated:
       prune: true

@@ -1,2 +1,8 @@
 namespace: argocd
 dest_server: https://kubernetes.default.svc
+
+# prd
+# dev
+# int
+# local
+environment: prd

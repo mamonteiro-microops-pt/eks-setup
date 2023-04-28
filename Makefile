@@ -10,7 +10,7 @@ install-argocd:
 	helm install argocd argo/argo-cd --wait --set server.service.type=NodePort --set configs.secret.argocdServerAdminPassword=$(PASSWORD) -n argocd
 
 install-argo-apps:
-	helm install argocd-setup ./setup/argocd/argo_applications
+	helm install argocd-setup ./setup/argocd/argo_applications --set environment=local
 
 delete-cluster:
 	kind delete cluster --name local-kafka-kubernetes
