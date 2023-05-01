@@ -20,3 +20,11 @@ https://localhost:30080/
 
 username:admin
 password:password
+
+# Useful kafka commands
+
+## list principals
+kafka-acls --list --bootstrap-server localhost:9092 zookeeper.connect=zookeeper.confluent.svc.cluster.local:2181
+
+## list topics
+kafka-topics --bootstrap-server localhost:9092 --list

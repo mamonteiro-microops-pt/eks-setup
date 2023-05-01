@@ -1,5 +1,7 @@
 PASSWORD := "\$$2a\$$10\$$CAF82t.Bs.C030HGplOLZebyppdkBGliti03ZAKqmJJTh3Mf95cBq"
 
+create-all:	create-cluster install-argocd install-argo-apps
+
 create-cluster:
 	kind create cluster --config ./local/cluster-config.yaml
 
