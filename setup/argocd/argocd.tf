@@ -6,17 +6,7 @@ resource "helm_release" "argocd" {
   namespace        = "argocd"
   create_namespace = true
   values = [
-    <<EOT
-    server:
-        config:
-            url: "https://kubernetes.default.svc"
-            username: admin
-        service:
-            type: LoadBalancer
-    configs:
-        secret:
-            argocdServerAdminPassword: $2a$10$CAF82t.Bs.C030HGplOLZebyppdkBGliti03ZAKqmJJTh3Mf95cBq
-    EOT
+    "${file("./argocd/values.yaml")}"
   ]
 }
 

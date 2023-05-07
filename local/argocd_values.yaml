@@ -1,0 +1,19 @@
+server:
+  config:
+    url: "https://kubernetes.default.svc"
+    username: admin
+  service:
+    type: NodePort
+
+configs:
+  secret:
+    argocdServerAdminPassword: $2a$10$CAF82t.Bs.C030HGplOLZebyppdkBGliti03ZAKqmJJTh3Mf95cBq
+
+  cm:
+    resource.customizations: |
+      platform.confluent.io/ControlCenter:
+        health.lua: |
+          hs = {}
+          hs.status = "Healthy"
+          hs.message = ""
+          return hs
