@@ -10,6 +10,7 @@ configs:
     argocdServerAdminPassword: $2a$10$CAF82t.Bs.C030HGplOLZebyppdkBGliti03ZAKqmJJTh3Mf95cBq
 
   cm:
+    exec.enabled: false
     resource.customizations: |
       platform.confluent.io/ControlCenter:
         health.lua: |
