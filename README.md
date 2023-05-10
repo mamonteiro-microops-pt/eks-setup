@@ -32,7 +32,7 @@ sasl.mechanism=PLAIN' > kafka-config.properties
 ## list principals
 kafka-acls --list --bootstrap-server localhost:9092 zookeeper.connect=zookeeper.confluent.svc.cluster.local:2181 --command-config kafka-config.properties
 
-kafka-acls --bootstrap-server localhost:9092 zookeeper.connect=zookeeper.confluent.svc.cluster.local:2181 --add --allow-principal User:c3 --operation Read --topic kn.pricing.created.v1 --command-config kafka-config.properties
+kafka-acls --bootstrap-server localhost:9092 zookeeper.connect=zookeeper.confluent.svc.cluster.local:2181 --add --allow-principal User:c3 --operation Read --topic kn.pricing.created.v1 --command-config kafka-config.properties --group '*'
 
 ## list topics
 kafka-topics --bootstrap-server localhost:9092 --list --command-config kafka-config.properties
@@ -41,8 +41,8 @@ kafka-topics --bootstrap-server localhost:9092 --list --command-config kafka-con
 kafka-console-consumer --bootstrap-server localhost:9092 --topic __consumer_offsets --from-beginning
 kafka-console-consumer --bootstrap-server localhost:9092 --topic kn.pricing.created.v1 --from-beginning
 
+kafka-console-consumer --bootstrap-server localhost:9092 --topic kn.pricing.created.v1 --from-beginning --consumer.config rui-config.properties
+
 ## Remove ACL
 kafka-acls --bootstrap-server localhost:9092 --remove --allow-principal User:c3 --operation Read --topic kn.pricing.created.v1 --command-config kafka-config.properties
 
-
-kafka-console-consumer --bootstrap-server localhost:9092 --topic kn.pricing.created.v1 --from-beginning --consumer.config rui-config.properties
