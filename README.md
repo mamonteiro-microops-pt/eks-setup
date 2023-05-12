@@ -41,7 +41,7 @@ kafka-topics --bootstrap-server localhost:9092 --list --command-config kafka-con
 kafka-console-consumer --bootstrap-server localhost:9092 --topic __consumer_offsets --from-beginning
 kafka-console-consumer --bootstrap-server localhost:9092 --topic kn.pricing.created.v1 --from-beginning
 
-kafka-console-consumer --bootstrap-server localhost:9092 --topic kn.pricing.created.v1 --from-beginning --consumer.config rui-config.properties
+kafka-console-consumer --bootstrap-server localhost:9092 --topic kn.pricing.created.v1 --from-beginning --consumer.config c3-config.properties
 
 ## Remove ACL
 kafka-acls --bootstrap-server localhost:9092 --remove --allow-principal User:c3 --operation Read --topic kn.pricing.created.v1 --command-config kafka-config.properties
