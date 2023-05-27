@@ -1,5 +1,3 @@
-PASSWORD := "\$$2a\$$10\$$CAF82t.Bs.C030HGplOLZebyppdkBGliti03ZAKqmJJTh3Mf95cBq"
-
 create-all:	create-cluster install-argocd install-argo-apps
 
 create-cluster:
@@ -17,3 +15,12 @@ install-argo-apps:
 
 delete-cluster:
 	kind delete cluster --name local-kafka-kubernetes
+
+create-prod-cluster:
+	aws configure
+	terraform -chdir=./setup init
+	terraform -chdir=./setup apply
+
+clean-terraform-files:
+	rm -rf ./setup/.terraform ./setup/.terraform.* ./setup/terraform.tfstate
+	
