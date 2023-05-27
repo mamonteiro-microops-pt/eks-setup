@@ -22,5 +22,4 @@ create-prod-cluster:
 	terraform -chdir=./setup apply
 
 clean-terraform-files:
-	rm -rf ./setup/.terraform ./setup/.terraform.* ./setup/terraform.tfstate
-	
+	rm -rf ./setup/.terraform ./setup/.terraform.tfstate.lock.info ./setup/terraform.tfstate
