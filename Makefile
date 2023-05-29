@@ -16,7 +16,7 @@ install-argo-apps:
 delete-cluster:
 	kind delete cluster --name local-kafka-kubernetes
 
-create-prod-cluster:
+create-prod-cluster: clean-terraform-files
 	aws configure
 	terraform -chdir=./setup init
 	terraform -chdir=./setup apply

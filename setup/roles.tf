@@ -63,6 +63,42 @@ resource "aws_iam_role_policy_attachment" "eks-aws_csi_driver" {
   role       = aws_iam_role.eks_nodegroup_role.name
 }
 
+resource "aws_iam_role_policy_attachment" "eks-aws_csi_driver" {
+  policy_arn = aws_iam_policy.aws_external_dns.arn
+  role       = aws_iam_role.eks_nodegroup_role.name
+}
+
+resource "aws_iam_policy" "aws_external_dns" {
+  name = "aws-external-dns"
+  description = "allow external dns"
+  policy = jsonencode(
+    {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Action": [
+            "route53:ChangeResourceRecordSets"
+          ],
+          "Resource": [
+            "arn:aws:route53:::hostedzone/*"
+          ]
+        },
+        {
+          "Effect": "Allow",
+          "Action": [
+            "route53:ListHostedZones",
+            "route53:ListResourceRecordSets"
+          ],
+          "Resource": [
+            "*"
+          ]
+        }
+      ]
+    }
+  )
+}
+
 resource "aws_iam_policy" "aws_csi_driver" {
   name        = "aws-csi-driver"
   # path        = "/"
