@@ -63,7 +63,7 @@ resource "aws_iam_role_policy_attachment" "eks-aws_csi_driver" {
   role       = aws_iam_role.eks_nodegroup_role.name
 }
 
-resource "aws_iam_role_policy_attachment" "eks-aws_csi_driver" {
+resource "aws_iam_role_policy_attachment" "eks-aws_external_dns" {
   policy_arn = aws_iam_policy.aws_external_dns.arn
   role       = aws_iam_role.eks_nodegroup_role.name
 }
