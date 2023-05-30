@@ -1,7 +1,4 @@
 server:
-  config:
-    url: "https://kubernetes.default.svc"
-    username: admin
   service:
     type: NodePort
 
