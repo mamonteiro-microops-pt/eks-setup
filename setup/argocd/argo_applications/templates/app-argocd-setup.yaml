@@ -16,7 +16,7 @@ spec:
   project: default
   source:
     path: .
-    repoURL: https://github.com/RuiEusebio/argocd-setup.git
+    repoURL: https://github.com/mamonteiro-kafkaops/argocd-setup.git
     targetRevision: HEAD
     helm:
       valueFiles:
