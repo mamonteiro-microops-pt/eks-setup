@@ -3,18 +3,20 @@ kind: Cluster
 name: local-kafka-kubernetes
 nodes:
 - role: control-plane
-# ArgoCD 
+  # ArgoCD 
   extraPortMappings:
-  - containerPort: 30080 
+  - containerPort: 30080
     hostPort: 30080
     listenAddress: "0.0.0.0"
     protocol: tcp
 - role: worker
-# control-center
+  # control-center
   extraPortMappings:
   - containerPort: 30021
     hostPort: 30021
     listenAddress: "0.0.0.0"
     protocol: tcp
+- role: worker
+- role: worker
 - role: worker
 - role: worker

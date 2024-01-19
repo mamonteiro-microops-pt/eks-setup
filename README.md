@@ -1,3 +1,12 @@
+# Install locally
+
+cd eks-setup
+make 
+
+### deploy argocd   
+    make install-argocd
+
+
 # terraform-test
 aws eks --region us-east-1 update-kubeconfig --name eks-kafka-cluster
 
@@ -46,3 +55,6 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic kn.pricing.crea
 ## Remove ACL
 kafka-acls --bootstrap-server localhost:9092 --remove --allow-principal User:c3 --operation Read --topic kn.pricing.created.v1 --command-config kafka-config.properties
 
+export AWS_ACCESS_KEY_ID=AKIAQNGDC6FNS7MXHPMQ                                              
+export AWS_SECRET_ACCESS_KEY=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
+export AWS_DEFAULT_REGION=us-east-1    
